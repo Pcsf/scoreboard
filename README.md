@@ -9,6 +9,7 @@ A simple Python-based scoreboard for data verification, inspired by concepts use
 - Detailed reporting of matches and mismatches, including the line number of the transaction.
 - Test descriptions are automatically included in the report.
 - Ability to write reports to a file or print to the console.
+- HTML reporting for a more structured and readable output.
 
 ## Why Use This Scoreboard?
 
@@ -26,6 +27,13 @@ Here are the key scenarios where this implementation provides a significant adva
 
 In short, think of `unittest` as a **final exam** (checking the final answer) and this scoreboard as a **live referee** (watching the entire process and making calls in real-time).
 
+## The `Transaction` Class
+
+The `Transaction` class is a flexible container for the data you want to verify. It is designed to be adaptable for both simple and complex data structures.
+
+-   **Simple Data**: For basic data types like strings, numbers, or dictionaries, you can use the `Transaction` class directly.
+-   **Complex Data**: For more complex data structures, you can extend the `Transaction` class and override the `__eq__` method to implement custom comparison logic. This is useful when you only need to compare specific fields in a larger data object.
+
 ## Usage
 
 The main script `scoreboard.py` can be run directly to see a demonstration of the scoreboard in action.
@@ -35,6 +43,15 @@ python scoreboard.py
 ```
 
 This will output the results of a predefined test case with both matching and mismatching transactions.
+
+### Reporting
+
+The scoreboard can generate reports in two formats:
+
+-   **Text**: A plain text report printed to the console or saved to a file.
+-   **HTML**: A structured HTML report that is easy to read and share.
+
+To generate an HTML report, specify an output file with an `.html` extension in the `report` method.
 
 ## Testing
 
